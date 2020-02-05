@@ -3,7 +3,8 @@
  * of items. A vendor carries out sales transactions.
  */
 public class Vendor {
-
+  private int price;
+  private int stock;
 
   /**
    * Constructs a Vendor
@@ -11,8 +12,8 @@ public class Vendor {
    * @param price the price of a single item in cents (int)
    * @param stock number of items to place in stock (int)
    */
-  public Vendor() {
-
+  public Vendor(int price, int stock) {
+    
 
   }
 
