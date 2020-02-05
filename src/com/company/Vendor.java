@@ -6,7 +6,6 @@ package com.company;
 public class Vendor {
   private int price;  //Vendor
   private int stock;
-  private int qty; //setStock
   private int number; //addMoney
   private int curDeposit=0;
   private int change; //makeSale
@@ -27,9 +26,8 @@ public class Vendor {
    *
    * @param qty number of items to place in stock (int)
    */
-  public void setStock(int q) {
-    qty = q;
-    stock+=qty;
+  public void setStock(int qty) {
+    stock=qty;
   }
 
 
