@@ -3,8 +3,12 @@
  * of items. A vendor carries out sales transactions.
  */
 public class Vendor {
-  private int price;
+  private int price;  //Vendor
   private int stock;
+  private int qty; //setStock
+  private int number; //addMoney
+  private int curDeposit=0;
+  private int change=0; //makeSale
 
   /**
    * Constructs a Vendor
@@ -12,9 +16,9 @@ public class Vendor {
    * @param price the price of a single item in cents (int)
    * @param stock number of items to place in stock (int)
    */
-  public Vendor(int price, int stock) {
-    
-
+  public Vendor(int p, int s) {
+    price = p;
+    stock = s;
   }
 
   /**
@@ -22,8 +26,8 @@ public class Vendor {
    *
    * @param qty number of items to place in stock (int)
    */
-  public setStock() {
-
+  public void setStock(int q) {
+    qty = q;
   }
 
 
@@ -32,9 +36,8 @@ public class Vendor {
    *
    * @return number of items currently in stock (int)
    */
-  public getStock() {
-
-
+  public int getStock() {
+    return stock;
   }
 
   /**
@@ -43,8 +46,8 @@ public class Vendor {
    *
    * @param number of cents to add to the deposit (int)
    */
-  public addMoney() {
-
+  public void addMoney(int n) {
+    curDeposit += n;
   }
 
   /**
@@ -52,8 +55,8 @@ public class Vendor {
    *
    * @return number of cents in the current deposit (int)
    */
-  public getDeposit() {
-
+  public int getDeposit() {
+    return curDeposit;
   }
 
   /**
@@ -66,8 +69,15 @@ public class Vendor {
    *
    * @return true for a successful sale, false otherwise (boolean)
    */
-  public makeSale() {
+  public boolean makeSale() {
+    if (stock>0 && curDeposit>price){
+      this.stock -= 1;
+      curDeposit -= price;
+      return true;
+    }
+    else{
 
+    }
   }
 
   /**
