@@ -6,8 +6,7 @@ package com.company;
 public class Vendor {
   private int price;  //Vendor
   private int stock;
-  private int number; //addMoney
-  private int curDeposit=0;
+  private int curDeposit=0; //addMoney
   private int change; //makeSale
 
   /**
