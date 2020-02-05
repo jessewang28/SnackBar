@@ -1,3 +1,4 @@
+package com.company;
 /**
  * This class implements a vendor that sells one kind
  * of items. A vendor carries out sales transactions.
@@ -8,7 +9,7 @@ public class Vendor {
   private int qty; //setStock
   private int number; //addMoney
   private int curDeposit=0;
-  private int change=0; //makeSale
+  private int change; //makeSale
 
   /**
    * Constructs a Vendor
@@ -28,6 +29,7 @@ public class Vendor {
    */
   public void setStock(int q) {
     qty = q;
+    stock+=qty;
   }
 
 
@@ -70,13 +72,14 @@ public class Vendor {
    * @return true for a successful sale, false otherwise (boolean)
    */
   public boolean makeSale() {
-    if (stock>0 && curDeposit>price){
-      this.stock -= 1;
-      curDeposit -= price;
+    if (stock>0 && curDeposit>=price){
+      this.stock--;
+      change = curDeposit - price;
       return true;
     }
     else{
-
+      change = curDeposit;
+      return false;
     }
   }
 
@@ -85,8 +88,8 @@ public class Vendor {
    * the last sale or refund).
    * @return number of cents in the current change (int)
    */
-  public getChange(){
-
-
+  public int getChange(){
+    curDeposit=0;
+    return change;
   }
 }
