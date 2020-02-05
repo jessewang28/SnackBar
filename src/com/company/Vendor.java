@@ -6,8 +6,9 @@ package com.company;
 public class Vendor {
   private int price;  //Vendor
   private int stock;
-  private int curDeposit=0; //addMoney
+  private int curDeposit; //addMoney
   private int change; //makeSale
+  public static double totalSales = 0;
 
   /**
    * Constructs a Vendor
@@ -72,6 +73,7 @@ public class Vendor {
     if (stock>0 && curDeposit>=price){
       this.stock--;
       change = curDeposit - price;
+      totalSales +=price;
       return true;
     }
     else{
@@ -89,4 +91,13 @@ public class Vendor {
     curDeposit=0;
     return change;
   }
+
+
+  public static double getTotalSales(){
+    double r = totalSales/100;
+    totalSales= 0;
+    return r;
+  }
+
+
 }
